@@ -1474,6 +1474,8 @@ static ssize_t store_volt_table(struct kobject *kobj, struct attribute *attr,
 
 	ipa_update();
 
+	ipa_update();
+
 	mutex_unlock(&cpufreq_lock);
 
 	return count;
