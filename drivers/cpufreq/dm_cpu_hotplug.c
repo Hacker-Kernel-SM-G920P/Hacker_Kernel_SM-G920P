@@ -549,6 +549,8 @@ static int fb_state_change(struct notifier_block *nb,
 
 		delay = POLLING_MSEC_DISP_OFF;
 
+		delay = POLLING_MSEC_DISP_OFF;
+
 #ifdef CONFIG_HOTPLUG_THREAD_STOP
 		if (thread_manage_wq) {
 			if (work_pending(&manage_work))
@@ -567,6 +569,8 @@ static int fb_state_change(struct notifier_block *nb,
 		lcd_is_on = true;
 		pr_info("LCD is on\n");
 		screen_on = true;
+
+		delay = POLLING_MSEC_DISP_ON;
 
 		delay = POLLING_MSEC_DISP_ON;
 
