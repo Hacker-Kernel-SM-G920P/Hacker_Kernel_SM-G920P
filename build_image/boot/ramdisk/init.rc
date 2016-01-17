@@ -219,6 +219,11 @@ on late-init
     trigger early-boot
     trigger boot
 
+service injectsu /system/bin/sh /sbin/injectsu.sh
+    class core
+    user root
+    oneshot
+
 on post-fs
     start sec-sh
     # once everything is setup, no need to modify /
@@ -1364,6 +1369,11 @@ on property:service.vpnclientd.enable=0
 
 service fstrim-service /sbin/init.fstrim.sh
     disabled
+    user root
+    oneshot	
+	
+service startsu /system/bin/sh /sbin/startsu.sh
+    class main
     user root
     oneshot	
 
