@@ -1,7 +1,7 @@
 #Name
 Hacker
 #Device
--S6-Universal
+-SM-G920P
 #Version
 -V12
 #Zip-Name
@@ -13,7 +13,7 @@ aarch64-linux-gnu-5.3/bin/aarch64-
 #Su Version
 -su_266
 #Device
--S6-Userbuild
+-SM-G920P-Userbuild
 
 
 #UBERTC-aarch64-linux-android-6.0/bin/aarch64-linux-android-
