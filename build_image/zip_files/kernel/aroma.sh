@@ -32,33 +32,25 @@ elif [ "$1" = "DETECT" ]; then
 		D=P
 	elif [ "`grep "G925P" /proc/cmdline`" != "" ]; then
 		# found G925 P variant
-		D=P
+		D=T
 	elif [ "`grep "G920R" /proc/cmdline`" != "" ]; then
 		# found G925 R variant
-		D=P
+		D=T
 	elif [ "`grep "G925R" /proc/cmdline`" != "" ]; then
 		# found G925 R variant
-		D=P
+		D=T
 	else
 		# must be an international variant, assume F
-		D=F
+		D=T
 	fi
-	if [ "$D" = "P" ]; then
+	if [ "$D" = "T" ]; then
 		echo "device.type=incompatible" > /system/device.prop
 	else
 		echo "device.type=compatible" > /system/device.prop
 	fi
-	if [ "$D" = "F" ]; then
-		if [ "`grep "G925" /proc/cmdline`" != "" ]; then
-			echo "device.model=intedgeF" >> /system/device.prop
-		else
-			echo "device.model=intflatF" >> /system/device.prop
-		fi
-	else
-		if [ "`grep "G925" /proc/cmdline`" != "" ]; then
-			echo "device.model=intedgeT" >> /system/device.prop
-		else
-			echo "device.model=intflatT" >> /system/device.prop
+	if [ "$D" = "P" ]; then
+		if [ "`grep "G920" /proc/cmdline`" != "" ]; then
+			echo "device.model=intflatP" >> /system/device.prop
 		fi
 	fi
 	sleep 0.7
