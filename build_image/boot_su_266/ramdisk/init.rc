@@ -20,7 +20,6 @@ on early-init
 
     # Disable SELinux
     write /sys/fs/selinux/disable 2
-    write /sys/fs/selinux/checkreqprot 0
 
     # Set the security context for the init process.
     # This should occur before anything else (e.g. ueventd) is started.
