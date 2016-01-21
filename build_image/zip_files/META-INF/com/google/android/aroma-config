@@ -220,34 +220,20 @@ install(
 	)
 );
 
-ini_set("text_next", "Next");
+ini_set("text_next", "Finish");
+ini_set("icon_next", "@finish");
 
-#viewbox(
-#	#-- Title
-#	"Installation Completed",
-#	#-- Text
-#	"<#selectbg_g><b>Congratulations...</b></#>\n\n"+
-#	"<b>"+ini_get("rom_name")+"</b> has been installed on your device.\n\n"+
-#	"Installer Status: "+getvar("retstatus")+"\n\n",
-#	#-- Icon
-#	"@welcome",
-#	#-- Checkbox Text
-#	"Reboot now",
-#	#-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
-#	"1",
-#	#-- Save checked value in variable "reboot_it" (Optional)
-#	"reboot_it"
-#);
+checkviewbox(
+    "Installation Completed!",
+    "<#selectbg_g><b>Congratulation...</b></#>\n\n"+
+    "<b>"+ini_get("rom_name")+"</b> Has Been Installed Into Your Device!\n\n"+
+	"Installer Status: "+getvar("retstatus")+"\n\n",
+    "@welcome",
+    "Reboot Your Device Now.",
+    "0",
+    "reboot_it"
+);
 
-#if
-#	getvar("reboot_it")=="1"
-#then
-#	#
-#	# reboot("onfinish");   - Reboot if anything finished
-#	# reboot("now");        - Reboot Directly
-#	# reboot("disable");    - If you set reboot("onfinish") before, use this command to revert it.
-#	#
-#	reboot("onfinish");
-#endif;
-
-#---- FINISH
+if getvar("reboot_it")=="1" then
+  reboot("onfinish");
+endif;
