@@ -70,6 +70,8 @@ BUILD_KERNEL()
 	export KBUILD_BUILD_HOST=smartlounge.eu
         export USE_CCACHE=1
         export CCACHE_DIR=/media/Cache/kernel_ccache
+        export KBUILD_BUILD_USER=Xile
+        export KBUILD_BUILD_HOST=Xile
         export USE_SEC_FIPS_MODE=true
         export ENABLE_GRAPHITE=true
 	export CROSS_COMPILE=$BUILD_CROSS_COMPILE
